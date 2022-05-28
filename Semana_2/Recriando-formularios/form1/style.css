@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 10px;
+  --bg-body: #e5e5e5;
+  --bg-bg-before: #535971;
+  --bg-input: #fafafc;
+  --color-header: #ffffff;
+  --color-title2: #535971;
+  --color-label: #4e4958;
+  --color-span: #c1bccc;
+  --color-submit: #ff5374;
+}
+
+body {
+  background-color: var(--bg-body);
+  /* background-color: #e5e5e5; */
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 43.6rem;
+  background-color: var(--bg-bg-before);
+  z-index: -1;
+}
+
+.page {
+  width: 75rem;
+  height: 108.4rem;
+  margin: 0 auto;
+  padding-top: 14rem;
+}
+
+header h1 {
+  font-family: 'Staatliches';
+  font-weight: 400;
+  font-size: 4.8rem;
+  line-height: 6rem;
+
+  color: var(--color-header);
+
+  margin-bottom: 1.8rem;
+}
+
+header p {
+  font-family: 'Poppins';
+  font-size: 2rem;
+  line-height: 3rem;
+
+  color: var(--color-header);
+
+  width: 41.7rem;
+
+  margin-bottom: 5.8rem;
+}
+
+form {
+  background-color: var(--color-header);
+  border-radius: 8px 8px 0 0;
+}
+
+fieldset {
+  border: none;
+  margin-left: 6.4rem;
+  margin-right: 6.4rem;
+}
+
+fieldset.personal-info legend,
+fieldset.mentor-info legend,
+fieldset.hour-info legend {
+  text-transform: uppercase;
+  color: var(--color-title2);
+  font-family: 'Staatliches';
+  font-size: 2.4rem;
+  line-height: 3.4rem;
+}
+
+fieldset .personal-wrapper {
+  padding-top: 6.4rem;
+  padding-bottom: 3rem;
+}
+
+#separator {
+  border: 1px solid #e6e6f0;
+  margin-top: 1.6rem;
+  margin-bottom: 3.6rem;
+}
+
+label {
+  font-family: 'Poppins';
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+
+  color: var(--color-label);
+}
+
+input,
+.date input {
+  background-color: var(--bg-input);
+  border: none;
+  border: 1px solid #e6e6f0;
+  border-radius: 8px;
+  width: 30rem;
+  height: 5.6rem;
+  padding: 0 4px;
+}
+
+span {
+  font-family: 'Poppins';
+  font-size: 1.2rem;
+  line-height: 2rem;
+
+  color: var(--color-span);
+  margin-left: 0.9rem;
+}
+
+.names {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.2rem;
+}
+
+.names .first-name,
+.names .lastname,
+.mentor-name {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.names .first-name input,
+.names .lastname input {
+  /* width: 30rem;
+  height: 5.6rem; */
+  /* border-radius: 8px;
+  border: 1px solid #e6e6f0; */
+  margin-bottom: 1.9rem;
+}
+
+.mail,
+.password {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.mail input,
+.password input,
+.mentor-name input {
+  width: 62.2rem;
+  margin-bottom: 1.9rem;
+}
+
+fieldset .mentor-wrapper {
+  padding-bottom: 3rem;
+}
+
+.horas-wrapper {
+  display: flex;
+  gap: 3.2rem;
+}
+
+.start input,
+.final input {
+  width: 14rem;
+}
+
+.horas h3 {
+  font-family: 'Staatliches';
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3.4rem;
+
+  color: var(--color-title2);
+
+  margin-bottom: 0.8rem;
+}
+
+.date input,
+.start input,
+.final input {
+  margin-top: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.hour-info {
+  padding-bottom: 6.4rem;
+}
+
+.down {
+  background-color: var(--bg-bg-before);
+  width: 100%;
+  height: 16rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 8px 8px;
+}
+
+.down input {
+  width: 60.8rem;
+  height: 5.5rem;
+  background-color: var(--color-submit);
+  border: none;
+  text-transform: uppercase;
+
+  font-family: 'Staatliches';
+
+  font-size: 2rem;
+  line-height: 2.6rem;
+
+  color: var(--color-header);
+  cursor: pointer;
+}
+
+.down input:hover {
+  background-color: #e9375b;
+}
