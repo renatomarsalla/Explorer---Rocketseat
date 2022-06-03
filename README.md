@@ -23,4 +23,4 @@ Introdução ao JavaScript
 - Condicionais - if/else e switch;
 - Estruturas de dados - Listas e Objetos;
 - Laços de repetição - for/for of/while;
-- Funções;
+- Funções
