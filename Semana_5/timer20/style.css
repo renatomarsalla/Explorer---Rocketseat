@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --font: 'Roboto', sans-serif;
+  --bg-buttonOn: #02799d;
+}
+
+body {
+  font-family: var(--font);
+}
+
+main .page {
+  width: 82.1rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 19.2rem;
+}
+
+main .page .countdown {
+  margin-top: 25.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+main .page .countdown .timer {
+  display: flex;
+  font-weight: 500;
+  font-size: 12.62rem;
+  line-height: 14.8rem;
+}
+
+main .page .controls {
+  display: flex;
+  width: 32.1rem;
+  justify-content: space-between;
+}
+
+main .page .controls button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 4.8rem;
+  height: 4.8rem;
+}
+
+main .page .sounds {
+  width: 30.8rem;
+  height: 33.6rem;
+  margin-top: 24.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+main .page .sounds button {
+  width: 13.8rem;
+  height: 15.2rem;
+  border-radius: 2.4rem;
+  border: none;
+  cursor: pointer;
+}
+
+main .page .sounds .bg {
+  background-color: var(--bg-buttonOn);
+  /* background-color: var(--bg-buttonOff); */
+}
+
+main .page .sounds .top,
+main .page .sounds .bottom {
+  display: flex;
+  gap: 3.2rem;
+}
