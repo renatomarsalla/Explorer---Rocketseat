@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --bg-image: url('../bg/mountains-universe-1.png');
+  --color: #ffffff;
+  --font-family-primary: 'Roboto', sans-serif;
+}
+
+body {
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  width: 12.8rem;
+}
+
+body nav .header {
+  margin-left: 7.2rem;
+  margin-top: 4rem;
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+body nav {
+  display: flex;
+}
+
+body nav .links {
+  display: flex;
+  gap: 4.2rem;
+}
+
+body nav a {
+  color: var(--color);
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+body nav a:hover {
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+main .explore h1 {
+  width: 39.9rem;
+  height: 6rem;
+  color: var(--color);
+  margin: 17.2rem 44rem 2.4rem;
+  font-size: 4.8rem;
+}
+
+main .button button {
+  width: 19.5rem;
+  height: 4.8rem;
+  margin: 0 54.2rem 29.4rem;
+  background-color: transparent;
+  border-color: #ffffff;
+  border-radius: 0.8rem;
+  text-transform: uppercase;
+  color: #ffffff;
+}
