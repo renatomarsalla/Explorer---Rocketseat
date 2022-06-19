@@ -37,7 +37,7 @@ Usado a parte 1 como referência e adicionado slider para controlar o volume dos
 
 ## Semana_6
 
-###Desafio SPA Universe
+### Desafio SPA Universe
 Foi introduzido o conceito de SPA, orientação a objetos, javascript assíncrono e nodejs.
 Aplicação simples porém foram usados conceitos de OO para a criação de uma classe que gerencia as rotas da aplicação. Possui funcões que contém promises para a renderização do conteúdo html na página.
 
