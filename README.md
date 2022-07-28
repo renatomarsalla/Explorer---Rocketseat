@@ -41,4 +41,10 @@ Usado a parte 1 como referência e adicionado slider para controlar o volume dos
 Foi introduzido o conceito de SPA, orientação a objetos, javascript assíncrono e nodejs.
 Aplicação simples porém foram usados conceitos de OO para a criação de uma classe que gerencia as rotas da aplicação. Possui funcões que contém promises para a renderização do conteúdo html na página.
 
+## Semana_8
+
+### Desafio API Node
+Nesta parte do curso foi introduzido o back-end usando NodeJs, criação de banco de dados, consultas, inserindo informações utilizando o SQLite.
+
+
 
