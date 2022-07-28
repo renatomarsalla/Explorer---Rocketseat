@@ -46,5 +46,9 @@ Aplicação simples porém foram usados conceitos de OO para a criação de uma 
 ### Desafio API Node
 Nesta parte do curso foi introduzido o back-end usando NodeJs, criação de banco de dados, consultas, inserindo informações utilizando o SQLite.
 
+## Cep
+
+Criei essa pequena aplicação para fixar os conceitos sobre métodos assíncronos no JavaScript.
+
 
 
