@@ -49,6 +49,6 @@ Nesta parte do curso foi introduzido o back-end usando NodeJs, criação de banc
 ## Cep
 
 Criei essa pequena aplicação para fixar os conceitos sobre métodos assíncronos no JavaScript.
-
+Faço uma pequena consulta em uma APi de cep e retorno os valores em uma página html.
 
 
