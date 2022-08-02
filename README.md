@@ -44,7 +44,7 @@ Aplicação simples porém foram usados conceitos de OO para a criação de uma 
 ## Semana_8
 
 ### Desafio API Node
-Nesta parte do curso foi introduzido o back-end usando NodeJs, criação de banco de dados, consultas, inserindo informações utilizando o SQLite.
+Nesta parte do curso foi introduzido o back-end usando NodeJs, criação de banco de dados, consultas, inserindo informações utilizando o SQLite. Para simular o front-end foi usado o aplicativo Insomnia e para visualizar os dados foi usado o Beekeeper.
 
 ## Cep
 
