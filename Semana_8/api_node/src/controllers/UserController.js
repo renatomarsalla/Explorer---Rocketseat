@@ -45,6 +45,7 @@ class UserController {
     for (index = 0; index < selectId.length; index++) {
       idUser = selectId[index].id;
     }
+    console.log("id user", idUser);
     const listId = selectId.filter(idExists => idExists.id);
     if (listId.length === 0) {
       throw new AppError("Usuário não existe");
@@ -55,6 +56,7 @@ class UserController {
     for (i = 0; i < selectEmail.length; i++) {
       identifier = selectEmail[i].id;
     }
+    console.log("identifier", identifier);
     const listEmail = selectEmail.filter(emailAlreadyExists => emailAlreadyExists.email);
     if (listEmail.length && identifier !== idUser) {
       throw new AppError("Email já cadastrado");
