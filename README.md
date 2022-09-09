@@ -51,4 +51,7 @@ Nesta parte do curso foi introduzido o back-end usando NodeJs, criação de banc
 Criei essa pequena aplicação para fixar os conceitos sobre métodos assíncronos no JavaScript.
 Faço uma pequena consulta em uma APi de cep e retorno os valores em uma página html.
 
+## Semana_9
 
+### RocketMovies
+Nesta parte do curso foi apresentado o ReactJs, foi desenvolvida uma aplicação durante o curso e proposto um desafio de criar um front-end  utilizando o Reactjs.
