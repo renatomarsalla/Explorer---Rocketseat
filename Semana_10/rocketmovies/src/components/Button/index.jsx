@@ -2,7 +2,7 @@ import { Container } from './styles';
 
 export function Button({ icon: Icon, title, width, ...rest }) {
   return (
-    <Container>
+    <Container {...rest}>
       {Icon && <Icon />}
       {title}
       {/* <button {...rest} /> */}

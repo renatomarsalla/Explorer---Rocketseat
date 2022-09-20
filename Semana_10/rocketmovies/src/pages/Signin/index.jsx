@@ -5,8 +5,15 @@ import { Button } from '../../components/Button/index.jsx';
 import { Buttontext } from '../../components/ButtonText/index.jsx';
 
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export function Signin() {
+  const navigate = useNavigate();
+
+  // function change() {
+  //   navigate('/register');
+  // }
+
   return (
     <Container>
       <Form>

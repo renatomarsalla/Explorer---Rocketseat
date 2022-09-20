@@ -5,21 +5,38 @@ import { Button } from '../../components/Button/index.jsx';
 
 import { FiUser, FiMail, FiLock, FiArrowLeft } from 'react-icons/fi';
 
-// import { api } from '../../services/api.js';
+import { api } from '../../services/api.js';
 
 import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigate = useNavigate();
+
   function handleSignUp() {
     if (!name || !email || !password) {
       return alert(' preencha todos os campos');
     }
+
+    api
+      .post('/users', { name, email, password })
+      .then(() => {
+        alert('usuario cadastrado com sucesso');
+        navigate('/');
+      })
+      .catch(error => {
+        if (error.response) {
+          alert(error.response.data.message);
+        } else {
+          alert('nao foi possivel cadastrar');
+        }
+      });
   }
 
   return (

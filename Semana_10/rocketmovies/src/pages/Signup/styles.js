@@ -15,6 +15,8 @@ export const Form = styled.form`
 
   padding: 23rem 13.6rem;
 
+  
+
   >h1{
     font-size: 4.8rem;
     color: ${({ theme }) => theme.COLORS.PINK};
