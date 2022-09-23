@@ -6,13 +6,13 @@ export const Container = styled.button`
 
   color: ${({ theme }) => theme.COLORS.PINK};
 
-  margin-top: 4.2rem;
+  margin-top: 0.5rem;
 
   cursor: pointer;
 
   font-size: 1.6rem;
 
-  
+  text-align: right;
 
   
 `;

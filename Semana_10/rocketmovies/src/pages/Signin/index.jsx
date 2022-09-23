@@ -7,12 +7,18 @@ import { Buttontext } from '../../components/ButtonText/index.jsx';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-export function Signin() {
-  const navigate = useNavigate();
+import { useAuth } from '../../hooks/auth.jsx';
+import { useState } from 'react';
 
-  // function change() {
-  //   navigate('/register');
-  // }
+export function Signin() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const { signIn } = useAuth();
+
+  function handleSignIn() {
+    signIn({ email, password });
+  }
 
   return (
     <Container>
@@ -21,10 +27,22 @@ export function Signin() {
         <p>Aplicação para acompanhar tudo que assistir.</p>
         <h2>Faça seu login</h2>
 
-        <Input placeholder="Email" type="mail" icon={FiMail} size={34} />
-        <Input placeholder="Senha" type="password" icon={FiLock} size={34} />
+        <Input
+          placeholder="Email"
+          type="mail"
+          icon={FiMail}
+          size={34}
+          onChange={e => setEmail(e.target.value)}
+        />
+        <Input
+          placeholder="Senha"
+          type="password"
+          icon={FiLock}
+          size={34}
+          onChange={e => setPassword(e.target.value)}
+        />
 
-        <Button title="Entrar" />
+        <Button title="Entrar" onClick={handleSignIn} />
         {/* <Link to="/">Entrar</Link> */}
 
         {/* <Buttontext title="Criar conta" /> */}

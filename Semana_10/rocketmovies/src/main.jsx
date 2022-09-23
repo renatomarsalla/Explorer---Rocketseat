@@ -15,11 +15,15 @@ import { PreviewMovie } from './pages/PreviewMovie/index.jsx';
 
 import { Routes } from './routes/index.jsx';
 
+import { AuthProvider } from './hooks/auth.jsx';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
       {/* <PreviewMovie /> */}
     </ThemeProvider>
   </React.StrictMode>
