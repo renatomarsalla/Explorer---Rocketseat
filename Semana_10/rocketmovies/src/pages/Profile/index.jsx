@@ -6,7 +6,28 @@ import { Button } from '../../components/Button/index.jsx';
 
 import { Link } from 'react-router-dom';
 
+import { useState } from 'react';
+
+import { useAuth } from '../../hooks/auth.jsx';
+
 export function Profile() {
+  const { user, updateProfile } = useAuth();
+
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
+  const [passwordOld, setPasswordOld] = useState();
+  const [passwordNew, setPasswordNew] = useState();
+
+  async function handleUpdate() {
+    const user = {
+      name,
+      email,
+      currentPassword: passwordOld,
+      newPassword: passwordNew
+    };
+    await updateProfile({ user });
+  }
+
   return (
     <Container>
       <header>
@@ -29,15 +50,37 @@ export function Profile() {
         </Avatar>
         <div className="fields">
           <div className="date_email">
-            <Input placeholder="Nome" type="text" icon={FiUser} />
-            <Input placeholder="Email" type="mail" icon={FiMail} />
+            <Input
+              placeholder="Nome"
+              type="text"
+              icon={FiUser}
+              value={name}
+              onChange={e => setName(e.target.value)}
+            />
+            <Input
+              placeholder="Email"
+              type="mail"
+              icon={FiMail}
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
           </div>
           <div className="passwords">
-            <Input placeholder="Senha atual" type="password" icon={FiLock} />
-            <Input placeholder="Nova senha" type="password" icon={FiLock} />
+            <Input
+              placeholder="Senha atual"
+              type="password"
+              icon={FiLock}
+              onChange={e => setPasswordOld(e.target.value)}
+            />
+            <Input
+              placeholder="Nova senha"
+              type="password"
+              icon={FiLock}
+              onChange={e => setPasswordNew(e.target.value)}
+            />
           </div>
           <div className="div-button">
-            <Button title="Salvar" />
+            <Button title="Salvar" onClick={handleUpdate} />
           </div>
         </div>
       </Form>
