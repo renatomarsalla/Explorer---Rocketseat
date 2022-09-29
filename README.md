@@ -58,5 +58,5 @@ Nesta parte do curso foi apresentado o ReactJs, foi desenvolvida uma aplicação
 
 ## Semana_10
 
-### Integração front-en com back-end
+### Integração do front-end com back-end
 Nesta parte do curso esta sendo implementado a integração do front-end com o back-end.
