@@ -56,7 +56,7 @@ Faço uma pequena consulta em uma APi de cep e retorno os valores em uma página
 ### RocketMovies
 Nesta parte do curso foi apresentado o ReactJs, foi desenvolvida uma aplicação durante o curso e proposto um desafio de criar um front-end  utilizando o Reactjs.
 
-##Semana_10
+## Semana_10
 
-###Integração front-en com back-end
+### Integração front-en com back-end
 Nesta parte do curso esta sendo implementado a integração do front-end com o back-end.
