@@ -17,4 +17,8 @@ export const Container = styled.textarea`
 
   margin-top: 4rem;
   margin-bottom: 4rem;
+
+  &::placeholder{
+    color: white;
+  }
 `;

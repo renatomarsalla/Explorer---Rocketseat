@@ -27,9 +27,18 @@ export const Container = styled.div`
     border: none;
     background:none;
     color: ${({ isNew }) => isNew ? "gray" : "white"};
+    /* color:red; */
     text-align: center;
     height: 5.6rem;
+    text-decoration:none;
+
+    &::placeholder{
+    color: grey;
+  }
+
     
   }
+
+  
   
   `

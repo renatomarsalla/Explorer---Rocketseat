@@ -75,11 +75,15 @@ export const Container = styled.div`
     background-color: black;
     color: ${({ theme }) => theme.COLORS.PINK};
     cursor: pointer;
+    padding: 1.6rem 0;
+    font-size: 1.6rem;
   }
 
   .btnBlack button:hover{
     background-color: #000510;
   }
+
+  
 
 
 `;

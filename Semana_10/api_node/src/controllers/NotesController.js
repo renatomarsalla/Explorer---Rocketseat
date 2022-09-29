@@ -13,7 +13,9 @@ class NotesController {
     }
 
     if (result < 1 || result > 5) {
+      // alert("A nota deve ser entre 1 e 5");
       throw new AppError("A nota do filme deve estar entre 1 e 5");
+
     }
 
     const note_id = await connection("movie_notes").insert({
