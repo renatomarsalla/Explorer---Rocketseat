@@ -4,10 +4,27 @@ import { Header } from '../../components/Header/index.jsx';
 import { Button } from '../../components/Button/index.jsx';
 import { Section } from '../../components/Section/index.jsx';
 import { Tag } from '../../components/Tags/index.jsx';
+import { Note } from '../../components/Note/index.jsx';
 
 import { Link } from 'react-router-dom';
 
+import { api } from '../../services/api.js';
+
+import { useState, useEffect } from 'react';
+
 export function Home() {
+  const [notes, setNotes] = useState([]);
+
+  useEffect(() => {
+    async function fetchNotes() {
+      const response = await api.get('/movie_notes');
+      console.log(response);
+      setNotes(response.data);
+    }
+
+    fetchNotes();
+  }, []);
+
   return (
     <Container>
       <Header />
@@ -16,126 +33,16 @@ export function Home() {
           <h2>Meus filmes</h2>
           <div className="buttonAdd">
             <FiPlus />
-            {/* <button>Adiconar filmes</button>
-             */}
+
             <Link to="/createMovie">Adiconar filmes</Link>
           </div>
         </div>
 
         <Content>
-          <Section title="Interestellar">
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-              excepturi sequi laudantium perspiciatis libero omnis! Ad, iste
-              hic? Doloremque aperiam voluptas, voluptatum fugiat asperiores
-              architecto laudantium facere eligendi a accusamus.
-            </p>
-            <div className="tags">
-              <Tag title="Ficção científica" />
-              <Tag title="Drama" />
-              {/* <h3>veja mais</h3> */}
-              <Link to="/previewmovie">Veja mais</Link>
-            </div>
-          </Section>
-          <Section title="Interestellar">
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-              excepturi sequi laudantium perspiciatis libero omnis! Ad, iste
-              hic? Doloremque aperiam voluptas, voluptatum fugiat asperiores
-              architecto laudantium facere eligendi a accusamus.
-            </p>
-            <div className="tags">
-              <Tag title="Ficção científica" />
-              <Tag title="Drama" />
-              {/* <h3>veja mais</h3> */}
-              <Link to="/previewmovie">Veja mais</Link>
-            </div>
-          </Section>
-          <Section title="Interestellar">
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-              excepturi sequi laudantium perspiciatis libero omnis! Ad, iste
-              hic? Doloremque aperiam voluptas, voluptatum fugiat asperiores
-              architecto laudantium facere eligendi a accusamus.
-            </p>
-            <div className="tags">
-              <Tag title="Ficção científica" />
-              <Tag title="Drama" />
-              {/* <h3>veja mais</h3> */}
-              <Link to="/previewmovie">Veja mais</Link>
-            </div>
-          </Section>
-          <Section title="Interestellar">
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-              excepturi sequi laudantium perspiciatis libero omnis! Ad, iste
-              hic? Doloremque aperiam voluptas, voluptatum fugiat asperiores
-              architecto laudantium facere eligendi a accusamus.
-            </p>
-            <div className="tags">
-              <Tag title="Ficção científica" />
-              <Tag title="Drama" />
-              {/* <h3>veja mais</h3> */}
-              <Link to="/previewmovie">Veja mais</Link>
-            </div>
-          </Section>
-          <Section title="Interestellar">
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-              excepturi sequi laudantium perspiciatis libero omnis! Ad, iste
-              hic? Doloremque aperiam voluptas, voluptatum fugiat asperiores
-              architecto laudantium facere eligendi a accusamus.
-            </p>
-            <div className="tags">
-              <Tag title="Ficção científica" />
-              <Tag title="Drama" />
-              {/* <h3>veja mais</h3> */}
-              <Link to="/previewmovie">Veja mais</Link>
-            </div>
-          </Section>
-          <Section title="Interestellar">
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-              excepturi sequi laudantium perspiciatis libero omnis! Ad, iste
-              hic? Doloremque aperiam voluptas, voluptatum fugiat asperiores
-              architecto laudantium facere eligendi a accusamus.
-            </p>
-            <div className="tags">
-              <Tag title="Ficção científica" />
-              <Tag title="Drama" />
-              {/* <h3>veja mais</h3> */}
-              <Link to="/previewmovie">Veja mais</Link>
-            </div>
+          <Section>
+            {notes.map(note => (
+              <Note key={String(note.id)} data={note} />
+            ))}
           </Section>
         </Content>
       </div>

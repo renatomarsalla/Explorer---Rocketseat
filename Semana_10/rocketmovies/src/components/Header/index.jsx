@@ -9,18 +9,29 @@ import { useAuth } from '../../hooks/auth.jsx';
 import { api } from '../../services/api';
 
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
+import { useEffect, useState } from 'react';
 
 export function Header() {
   const { signOut, user } = useAuth();
+  const [search, setSearch] = useState('');
 
   const avatarURL = user.avatar
     ? `${api.defaults.baseURL}/files/${user.avatar}`
     : avatarPlaceholder;
 
+  // async function fetchNotes() {
+  //   const response = await api.get(`/movie_notes?title=${search}`);
+  //   setNotes(response.data);
+  // }
+
   return (
     <Container>
       <h2>RocketMovies</h2>
-      <Input placeholder="Pesquisar pelo título" size={100} />
+      <Input
+        placeholder="Pesquisar pelo título"
+        size={100}
+        onChange={e => setSearch(e.target.value)}
+      />
       <div className="name-logout-img">
         <div className="name-logout">
           <Link to="/profile">{user.name}</Link>
