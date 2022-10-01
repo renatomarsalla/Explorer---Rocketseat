@@ -38,7 +38,7 @@ class NotesController {
   async show(request, response) {
     const { id } = request.params;
 
-    const note = await connection("movie_notes").where({ id });
+    const note = await connection("movie_notes").where({ id }).first();
     const tag = await connection("movie_tags").where({ note_id: id });
 
     return response.json({ ...note, tag });
@@ -85,6 +85,8 @@ class NotesController {
         tags: noteTags
       }
     })
+
+    // console.log("noteswithtags", notesWithTags);
 
     return response.json(notesWithTags);
   }

@@ -5,107 +5,76 @@ import { Tag } from '../../components/Tags/index.jsx';
 
 import { Link } from 'react-router-dom';
 
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { api } from '../../services/api';
+
+import { useAuth } from '../../hooks/auth.jsx';
+
 export function PreviewMovie() {
+  const [data, setData] = useState(null);
+  const params = useParams();
+
+  const { user } = useAuth();
+
+  const avatarURL = user.avatar
+    ? `${api.defaults.baseURL}/files/${user.avatar}`
+    : avatarPlaceholder;
+
+  useEffect(() => {
+    async function fetchNote() {
+      const response = await api.get(`/movie_notes/${params.id}`);
+      setData(response.data);
+      console.log(response.data);
+    }
+    fetchNote();
+  }, []);
+
   return (
     <Container>
       <Header />
-      <div className="page">
-        <div className="back">
-          <FiArrowLeft />
-          <Link to="/">Voltar</Link>
-          {/* <a href="#">Voltar</a> */}
+      {data && (
+        <div className="page">
+          <div className="back">
+            <FiArrowLeft />
+            <Link to="/">Voltar</Link>
+            {/* <a href="#">Voltar</a> */}
+          </div>
+          <Content>
+            <div className="title">
+              <h2>{data.title}</h2>
+              <div className="star">
+                <FiStar />
+                <FiStar />
+                <FiStar />
+                <FiStar />
+                <FiStar />
+              </div>
+            </div>
+            <div className="by">
+              <div className="author">
+                <img src={avatarURL} alt="foto de perfil" />
+                <h3>Por {user.name}</h3>
+              </div>
+              <div className="date">
+                <FiClock />
+
+                <h3>{data.created_at}</h3>
+              </div>
+            </div>
+            {data.tag && (
+              <div className="tags">
+                {data.tag.map(tag => (
+                  <Tag title={tag.name} />
+                ))}
+              </div>
+            )}
+            <div className="resume">
+              <p>{data.description}</p>
+            </div>
+          </Content>
         </div>
-        <Content>
-          <div className="title">
-            <h2>Interestellar</h2>
-            <div className="star">
-              <FiStar />
-              <FiStar />
-              <FiStar />
-              <FiStar />
-              <FiStar />
-            </div>
-          </div>
-          <div className="by">
-            <div className="author">
-              <img
-                src="https://www.github.com/renatomarsalla.png"
-                alt="foto de perfil"
-              />
-              <h3>Por Renato Marsalla Toscano</h3>
-            </div>
-            <div className="date">
-              <FiClock />
-              <h3>19/08/2022 às 19:14</h3>
-            </div>
-          </div>
-          <div className="tags">
-            <Tag title="Comédia" />
-            <Tag title="Drama" />
-            <Tag title="Romance" />
-          </div>
-          <div className="resume">
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere
-              harum sit corrupti, similique vel quos officiis assumenda placeat
-              eveniet tempore reprehenderit veritatis dicta, voluptates natus
-              fugit quae ea odio! Laborum?Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Ipsum quas incidunt quidem debitis aspernatur
-              saepe velit minima. Harum architecto facilis, laborum eius
-              necessitatibus aliquam porro, quas possimus dolor vel molestias?
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere
-              harum sit corrupti, similique vel quos officiis assumenda placeat
-              eveniet tempore reprehenderit veritatis dicta, voluptates natus
-              fugit quae ea odio! Laborum?Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Ipsum quas incidunt quidem debitis aspernatur
-              saepe velit minima. Harum architecto facilis, laborum eius
-              necessitatibus aliquam porro, quas possimus dolor vel molestias?
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere
-              harum sit corrupti, similique vel quos officiis assumenda placeat
-              eveniet tempore reprehenderit veritatis dicta, voluptates natus
-              fugit quae ea odio! Laborum?Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Ipsum quas incidunt quidem debitis aspernatur
-              saepe velit minima. Harum architecto facilis, laborum eius
-              necessitatibus aliquam porro, quas possimus dolor vel molestias?
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere
-              harum sit corrupti, similique vel quos officiis assumenda placeat
-              eveniet tempore reprehenderit veritatis dicta, voluptates natus
-              fugit quae ea odio! Laborum?Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Ipsum quas incidunt quidem debitis aspernatur
-              saepe velit minima. Harum architecto facilis, laborum eius
-              necessitatibus aliquam porro, quas possimus dolor vel molestias?
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere
-              harum sit corrupti, similique vel quos officiis assumenda placeat
-              eveniet tempore reprehenderit veritatis dicta, voluptates natus
-              fugit quae ea odio! Laborum?Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Ipsum quas incidunt quidem debitis aspernatur
-              saepe velit minima. Harum architecto facilis, laborum eius
-              necessitatibus aliquam porro, quas possimus dolor vel molestias?
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere
-              harum sit corrupti, similique vel quos officiis assumenda placeat
-              eveniet tempore reprehenderit veritatis dicta, voluptates natus
-              fugit quae ea odio! Laborum?Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Ipsum quas incidunt quidem debitis aspernatur
-              saepe velit minima. Harum architecto facilis, laborum eius
-              necessitatibus aliquam porro, quas possimus dolor vel molestias?
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere
-              harum sit corrupti, similique vel quos officiis assumenda placeat
-              eveniet tempore reprehenderit veritatis dicta, voluptates natus
-              fugit quae ea odio! Laborum?Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Ipsum quas incidunt quidem debitis aspernatur
-              saepe velit minima. Harum architecto facilis, laborum eius
-              necessitatibus aliquam porro, quas possimus dolor vel molestias?
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere
-              harum sit corrupti, similique vel quos officiis assumenda placeat
-              eveniet tempore reprehenderit veritatis dicta, voluptates natus
-              fugit quae ea odio! Laborum?Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Ipsum quas incidunt quidem debitis aspernatur
-              saepe velit minima. Harum architecto facilis, laborum eius
-              necessitatibus aliquam porro, quas possimus dolor vel molestias?
-            </p>
-          </div>
-        </Content>
-      </div>
+      )}
     </Container>
   );
 }

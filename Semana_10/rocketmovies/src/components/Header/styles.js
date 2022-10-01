@@ -4,8 +4,10 @@ export const Container = styled.div`
   width: 100%;
   height: 11.6rem;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   align-items: center;
+  justify-content: space-around;
   gap: 6.4rem;
 
   border-bottom: solid 1px gray;

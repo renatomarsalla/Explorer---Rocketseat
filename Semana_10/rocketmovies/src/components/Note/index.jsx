@@ -1,5 +1,6 @@
 import { Container } from './styles.js';
 import { Tag } from '../Tags/index.jsx';
+import { Link } from 'react-router-dom';
 
 export function Note({ data, ...rest }) {
   return (
@@ -13,6 +14,9 @@ export function Note({ data, ...rest }) {
           ))}
         </footer>
       )}
+      {/* <div className="seeMore">
+        <Link to="/previewmovie">Veja mais</Link>
+      </div> */}
     </Container>
   );
 }
