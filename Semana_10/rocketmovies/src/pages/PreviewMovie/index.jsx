@@ -2,8 +2,9 @@ import { Container, Content } from './styles';
 import { Header } from '../../components/Header/index.jsx';
 import { FiArrowLeft, FiStar, FiClock } from 'react-icons/fi';
 import { Tag } from '../../components/Tags/index.jsx';
+import { Buttontext } from '../../components/ButtonText/index.jsx';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -17,9 +18,20 @@ export function PreviewMovie() {
 
   const { user } = useAuth();
 
+  const navigate = useNavigate();
+
   const avatarURL = user.avatar
     ? `${api.defaults.baseURL}/files/${user.avatar}`
     : avatarPlaceholder;
+
+  async function handleRemoveNote() {
+    const confirm = window.confirm('Deseja mesmo excluir a nota?');
+    if (confirm) {
+      await api.delete(`/movie_notes/${params.id}`);
+      // navigate('/');
+      navigate(-1);
+    }
+  }
 
   useEffect(() => {
     async function fetchNote() {
@@ -38,7 +50,6 @@ export function PreviewMovie() {
           <div className="back">
             <FiArrowLeft />
             <Link to="/">Voltar</Link>
-            {/* <a href="#">Voltar</a> */}
           </div>
           <Content>
             <div className="title">
@@ -71,6 +82,10 @@ export function PreviewMovie() {
             )}
             <div className="resume">
               <p>{data.description}</p>
+            </div>
+
+            <div className="deleteNote">
+              <Buttontext title="excluir" onClick={handleRemoveNote} />
             </div>
           </Content>
         </div>

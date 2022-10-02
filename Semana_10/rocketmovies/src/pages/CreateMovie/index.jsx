@@ -111,9 +111,9 @@ export function CreateMovies() {
             </div>
           </div>
           <div className="btns">
-            <div className="btnBlack">
+            {/* <div className="btnBlack">
               <button>Excluir filme</button>
-            </div>
+            </div> */}
             <Button title="Salvar alterações" onClick={handleNewNote} />
           </div>
         </div>

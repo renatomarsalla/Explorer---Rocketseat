@@ -1,7 +1,7 @@
 import { Container, Content } from './styles';
-import { FiPlus, FiStar } from 'react-icons/fi';
+import { FiPlus, FiStar, FiX } from 'react-icons/fi';
 import { Header } from '../../components/Header/index.jsx';
-import { Button } from '../../components/Button/index.jsx';
+
 import { Section } from '../../components/Section/index.jsx';
 import { Tag } from '../../components/Tags/index.jsx';
 import { Note } from '../../components/Note/index.jsx';

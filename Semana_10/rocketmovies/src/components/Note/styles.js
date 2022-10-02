@@ -28,14 +28,11 @@ export const Container = styled.button`
     
   }
 
-  /* .seeMore{
-    width: 100px;
-    background-color: red;
+  .buttontext{
+    /* background-color: red; */
+    width: 10.5rem;
+    text-align: right;
   }
-  .seeMore a{
-    color:${({ theme }) => theme.COLORS.PINK};
-    justify-content: left;
-  } */
 
  
 `;

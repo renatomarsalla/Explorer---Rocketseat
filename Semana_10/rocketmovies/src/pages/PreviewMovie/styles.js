@@ -2,18 +2,25 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
+  
 
   .page{
     width: 114rem;
     margin: 0 auto;
     margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .page .back{
     display: flex;
     align-items: center;
+    justify-content: left;
     font-size: 1.6rem;
     gap:0.8rem;
+    width: 100rem;
 
     >svg{
       font-size: 1.6rem;
@@ -121,6 +128,13 @@ export const Container = styled.div`
       color: white;
       
     }
+  }
+
+  .deleteNote{
+    /* width: 5rem; */
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: flex-end;
   }
 `;
 
