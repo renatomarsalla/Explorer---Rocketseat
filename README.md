@@ -60,3 +60,8 @@ Nesta parte do curso foi apresentado o ReactJs, foi desenvolvida uma aplicação
 
 ### Integração do front-end com back-end
 Nesta parte do curso esta sendo implementado a integração do front-end com o back-end.
+
+## api-ref
+
+### Deploy do back-end
+Nesta parte foram feitas alterações nos arquivos da **Semana_10** para poder fazer o deploy da api.
