@@ -17,6 +17,25 @@ class UserRepository {
 
     return { id: userId };
   }
+
+  async idExists(id) {
+    const selectId = await connectionKnex('users').where({ id });
+    return selectId;
+  }
+
+
+  async updateUser({ name, email, password, updated_at, id }) {
+    const userId = await connectionKnex('users').where({ id }).update({
+      name,
+      email,
+      password,
+      updated_at,
+      id
+
+    });
+
+    return { id: userId };
+  }
 }
 
 module.exports = { UserRepository };

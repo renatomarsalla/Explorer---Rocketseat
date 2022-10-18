@@ -41,22 +41,24 @@ class UserController {
     const { id } = request.params;
 
     const selectId = await connection("users").where({ id });
+    console.log(selectId);
     let idUser, index;
     for (index = 0; index < selectId.length; index++) {
       idUser = selectId[index].id;
     }
-    console.log("id user", idUser);
+    // console.log("id user", idUser);
     const listId = selectId.filter(idExists => idExists.id);
     if (listId.length === 0) {
       throw new AppError("Usuário não existe");
     }
 
     const selectEmail = await connection("users").where({ email });
+    console.log(selectEmail);
     let identifier, i;
     for (i = 0; i < selectEmail.length; i++) {
       identifier = selectEmail[i].id;
     }
-    console.log("identifier", identifier);
+    // console.log("identifier", identifier);
     const listEmail = selectEmail.filter(emailAlreadyExists => emailAlreadyExists.email);
     if (listEmail.length && identifier !== idUser) {
       throw new AppError("Email já cadastrado");
