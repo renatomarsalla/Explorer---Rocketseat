@@ -7,12 +7,12 @@ class UserCreateService {
     this.userRepository = userRepository;
   }
 
-  async execute({ name, email, password }) {
+  async execute({ name, email, password, isAdmin }) {
     const userExists = await this.userRepository.userExists(email);
     console.log(userExists);
     //check the length array
     if (userExists.length === 0) {
-      const userCreated = await this.userRepository.create({ name, email, password });
+      const userCreated = await this.userRepository.create({ name, email, password, isAdmin });
       return userCreated;
     }
 

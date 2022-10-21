@@ -4,15 +4,15 @@ const { hash } = require("bcrypt");
 
 class UserController {
   async create(request, response) {
-    const { name, email, password } = request.body;
+    const { name, email, password, isAdmin } = request.body;
 
     const userRepository = new UserRepository();
     const userCreateService = new UserCreateService(userRepository);
 
     const hashPassword = await hash(password, 8);
-    await userCreateService.execute({ name, email, password: hashPassword });
+    await userCreateService.execute({ name, email, password: hashPassword, isAdmin });
 
-    return response.json({ name, email, password: hashPassword });
+    return response.json({ name, email, password: hashPassword, isAdmin });
   }
 
   async updateUser(request, response) {

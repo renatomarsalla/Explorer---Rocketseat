@@ -8,11 +8,12 @@ class UserRepository {
   }
 
   //this function create an user
-  async create({ name, email, password }) {
+  async create({ name, email, password, isAdmin }) {
     const userId = await connectionKnex('users').insert({
       name,
       email,
-      password
+      password,
+      admin: isAdmin
     });
 
     return { id: userId };
