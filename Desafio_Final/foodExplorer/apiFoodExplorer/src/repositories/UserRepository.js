@@ -37,6 +37,11 @@ class UserRepository {
 
     return { id: userId };
   }
+
+  async checkIfIsAdmin(admin) {
+    const isAdmin = await connectionKnex("users").where({ admin });
+    return isAdmin;
+  }
 }
 
 module.exports = { UserRepository };
